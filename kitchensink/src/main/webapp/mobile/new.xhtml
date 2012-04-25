@@ -8,11 +8,18 @@
    <h:panelGroup id="newMemberPanel" layout="block" styleClass="mobileContent">
       <br />
       <mobile:memberForm id="memberForm" member="#{newMember}"/>
+      <h:outputScript>
+         var navigateToList = function (event) {
+             if(event.status == 'success' &amp;&amp; $(document.getElementById('mobileForm:valid')).length === 0) {
+                 location.hash='list';
+             }
+         }
+      </h:outputScript>
       <h:commandButton id="register" action="#{memberController.register}" value="Register">
-            <f:ajax execute="@form" render="newMemberPanel"
-                  onevent="function (event) { if(event.status == 'success') { location.hash='list' }}"/>
+            <f:ajax execute="@form" render="newMemberPanel" onevent="navigateToList"/>
       </h:commandButton>
-      <h:messages globalOnly="true"/>
+      <h:outputText id="valid" style="display: none;" rendered="#{facesContext.validationFailed}" value="Validation Failed." />
+      <h:messages globalOnly="true" />
    </h:panelGroup>
 </ui:composition>
 
