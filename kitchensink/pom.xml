@@ -131,6 +131,27 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- The rewrite library allows us to do url rewriting - used here for rewriting mobile devices to mobile specific views -->
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-servlet</artifactId>
+            <version>1.0.4.Final</version>
+        </dependency>
+
+        <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-integration-cdi</artifactId>
+            <version>1.0.4.Final</version>
+        </dependency>
+
         <!-- Now we declare any tools needed -->
 
         <!-- Annotation processor to generate the JPA 2.0 metamodel classes 

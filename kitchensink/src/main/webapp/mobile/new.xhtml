@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:mobile="http://java.sun.com/jsf/composite/components/mobile">
+   <h:panelGroup id="newMemberPanel" layout="block" styleClass="mobileContent">
+      <br />
+      <mobile:memberForm id="memberForm" member="#{newMember}"/>
+      <h:commandButton id="register" action="#{memberController.register}" value="Register">
+            <f:ajax execute="@form" render="newMemberPanel"
+                  onevent="function (event) { if(event.status == 'success') { location.hash='list' }}"/>
+      </h:commandButton>
+      <h:messages globalOnly="true"/>
+   </h:panelGroup>
+</ui:composition>
+
+</html>
