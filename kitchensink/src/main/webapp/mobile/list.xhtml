@@ -6,7 +6,8 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:my="http://java.sun.com/jsf/composite/components">
    <h:panelGroup id="membersPanel" layout="block">
-      <h:dataTable var="_member" value="#{members}" rendered="#{not empty members}" style="width : 100%" styleClass="simpletablestyle">
+      <h:dataTable var="_member" value="#{members}" rendered="#{not empty members}" style="width : 100%" styleClass="simpletablestyle"
+            columnClasses=",,landscape,landscape" headerClass="left" footerClass="footer">
          <h:column>
             <f:facet name="header">Id</f:facet>
             #{_member.id}
@@ -15,11 +16,11 @@
             <f:facet name="header">Name</f:facet>
             #{_member.name}
          </h:column>
-         <h:column>
+         <h:column  headerClass="left landscape">
             <f:facet name="header">Email</f:facet>
             #{_member.email}
          </h:column>
-         <h:column>
+         <h:column headerClass="left landscape">
             <f:facet name="header">Phone #</f:facet>
             #{_member.phoneNumber}
          </h:column>
